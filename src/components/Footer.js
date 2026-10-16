@@ -148,7 +148,7 @@ const Footer = ({ onGetQuote }) => {
                   {links.map((link) => (
                     <li key={link}>
                       <a
-                        href="#"
+                        href="/"
                         className="text-sm text-steel-500 hover:text-steel-200 transition-colors"
                       >
                         {link}
@@ -168,9 +168,9 @@ const Footer = ({ onGetQuote }) => {
             © {new Date().getFullYear()} HaulX Logistics, Inc. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Terms of Service</a>
-            <a href="#" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Cookie Policy</a>
+            <a href="/privacy-policy" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Terms of Service</a>
+            <a href="/cookie-policy" className="text-xs text-steel-600 hover:text-steel-300 transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>

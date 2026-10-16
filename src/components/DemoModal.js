@@ -277,7 +277,8 @@ const DemoModal = ({ isOpen, onClose }) => {
 
               <p className="text-center text-xs text-steel-600 mt-1">
                 By submitting, you agree to our{' '}
-                <a href="#" className="text-steel-400 hover:text-amber-brand transition-colors">Privacy Policy</a>.
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a href="/privacy-policy" className="text-steel-400 hover:text-amber-brand transition-colors">Privacy Policy</a>.
               </p>
             </form>
           )}
