@@ -1,5 +1,5 @@
 import React from 'react';
-import { Package, Thermometer, Layers, Anchor, Zap, Globe } from 'lucide-react';
+import { Package, Thermometer, Layers, Anchor, Zap, Globe, PlaneTakeoff, Ship } from 'lucide-react';
 
 const services = [
   {
@@ -18,6 +18,47 @@ const services = [
   },
   {
     icon: Thermometer,
+    title: 'Trasporto Refrigerato',
+    desc: 'Trasporto a temperatura controllata per prodotti deperibili, farmaceutici e merci sensibili.',
+    tags: ['0°C – 8°C', 'Alimentare', 'Certificato ATP'],
+    color: 'cyan',
+  },
+  {
+    icon: Zap,
+    title: 'Spedizioni Urgenti',
+    desc: 'Carichi time-critical con ritiro garantito in giornata o il giorno successivo su corsie dedicate.',
+    tags: ['Dispacciamento 24/7', 'Ordini Express', 'GPS Live'],
+    color: 'blue',
+  },
+  {
+    icon: PlaneTakeoff,
+    title: 'Trasporto Aereo',
+    desc: 'Spedizioni aeree per merci urgenti o di alto valore verso destinazioni nazionali e internazionali. Gestione completa dogana e documentazione.',
+    tags: ['Express & Standard', 'Door-to-Door', 'Sdoganamento'],
+    color: 'violet',
+  },
+  {
+    icon: Ship,
+    title: 'Trasporto Marittimo',
+    desc: 'Soluzioni via mare per carichi FCL e LCL verso i principali porti italiani ed europei. Ideale per grandi volumi e merci non urgenti.',
+    tags: ['FCL & LCL', 'Porti Italiani', 'Export/Import'],
+    color: 'teal',
+  },
+  {
+    icon: Anchor,
+    title: 'Trasporti Speciali',
+    desc: 'Merci eccezionali, sovradimensionate o di peso elevato che richiedono pianali aperti e attrezzature speciali.',
+    tags: ['Permessi Pronti', 'Sovradimensionato', 'Scorte'],
+    color: 'indigo',
+  },
+  {
+    icon: Globe,
+    title: 'Intermodale',
+    desc: 'Combinazione ferrovia + camion per tratte lunghe efficienti, riducendo le emissioni senza sacrificare i tempi.',
+    tags: ['Ferroviario', 'Eco-Sostenibile', 'Lungo Raggio'],
+    color: 'green',
+  },
+];
     title: 'Trasporto Refrigerato',
     desc: 'Trasporto a temperatura controllata per prodotti deperibili, farmaceutici e merci sensibili.',
     tags: ['0°C – 8°C', 'Alimentare', 'Certificato ATP'],
@@ -51,6 +92,8 @@ const colorMap = {
   sky:    { bg: 'bg-sky-500/10',     border: 'border-sky-500/25',     icon: 'text-sky-400',     tag: 'bg-sky-500/10 text-sky-400 border-sky-500/20' },
   cyan:   { bg: 'bg-cyan-500/10',    border: 'border-cyan-500/25',    icon: 'text-cyan-400',    tag: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20' },
   indigo: { bg: 'bg-indigo-500/10',  border: 'border-indigo-500/25',  icon: 'text-indigo-400',  tag: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' },
+  violet: { bg: 'bg-violet-500/10',  border: 'border-violet-500/25',  icon: 'text-violet-400',  tag: 'bg-violet-500/10 text-violet-400 border-violet-500/20' },
+  teal:   { bg: 'bg-teal-500/10',    border: 'border-teal-500/25',    icon: 'text-teal-400',    tag: 'bg-teal-500/10 text-teal-400 border-teal-500/20' },
   green:  { bg: 'bg-emerald-500/10', border: 'border-emerald-500/25', icon: 'text-emerald-400', tag: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' },
 };
 
