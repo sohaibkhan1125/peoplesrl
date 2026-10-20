@@ -5,37 +5,37 @@ const steps = [
   {
     step: '01',
     icon: ClipboardList,
-    title: 'Submit Your Shipment',
-    desc: 'Enter your origin, destination, freight type, and weight. Our system processes your request in seconds — no phone tag, no waiting.',
-    detail: 'Available via web portal, mobile app, or API integration with your existing TMS.',
+    title: 'Invia la Tua Spedizione',
+    desc: 'Inserisci origine, destinazione, tipo di merce e peso. Il sistema elabora la richiesta in pochi secondi — senza telefonate, senza attese.',
+    detail: 'Disponibile via portale web, app mobile o integrazione API con il tuo TMS esistente.',
   },
   {
     step: '02',
     icon: Search,
-    title: 'We Match Your Carrier',
-    desc: 'Our matching engine scans 500+ vetted carriers in real-time, selecting the best fit based on lane, rating, equipment, and price.',
-    detail: 'Average match time under 90 seconds with automatic tender and acceptance.',
+    title: 'Troviamo il Vettore',
+    desc: 'Il nostro motore di matching analizza 500+ vettori certificati in tempo reale, selezionando il migliore per rotta, valutazione, mezzo e prezzo.',
+    detail: 'Tempo medio di matching inferiore a 90 secondi con affidamento e accettazione automatici.',
   },
   {
     step: '03',
     icon: Truck,
-    title: 'Pickup & Dispatch',
-    desc: 'Carrier is dispatched with full load details. Driver tracking goes live the moment they accept. Guaranteed pickup or we find a backup.',
-    detail: 'Auto-notifications sent to all parties at pickup confirmation.',
+    title: 'Ritiro e Dispacciamento',
+    desc: 'Il vettore viene dispatchato con tutti i dettagli del carico. Il tracciamento GPS inizia nel momento in cui accetta. Ritiro garantito o troviamo un sostituto.',
+    detail: 'Notifiche automatiche a tutte le parti alla conferma del ritiro.',
   },
   {
     step: '04',
     icon: Eye,
-    title: 'Real-Time Visibility',
-    desc: 'Track your freight mile by mile on a live map. Get proactive delay alerts, weather notifications, and ETA updates.',
-    detail: 'GPS pings every 5 minutes with exception management baked in.',
+    title: 'Visibilità in Tempo Reale',
+    desc: 'Traccia la tua merce chilometro per chilometro su una mappa live. Ricevi avvisi proattivi su ritardi, maltempo e aggiornamenti ETA.',
+    detail: 'Ping GPS ogni 5 minuti con gestione delle eccezioni integrata.',
   },
   {
     step: '05',
     icon: CheckCircle,
-    title: 'Delivered & Settled',
-    desc: 'Delivery confirmation with POD capture. Invoicing and carrier settlement happen automatically within 24 hours.',
-    detail: 'Digital POD, automated freight audit, and consolidated billing.',
+    title: 'Consegnato e Liquidato',
+    desc: 'Conferma di consegna con acquisizione POD digitale. Fatturazione e liquidazione del vettore avvengono automaticamente entro 24 ore.',
+    detail: 'POD digitale, audit merci automatizzato e fatturazione consolidata.',
   },
 ];
 
@@ -45,26 +45,22 @@ const LifecycleSection = ({ onGetQuote }) => {
   return (
     <section id="how-it-works" className="py-24 relative bg-navy-900/50">
       <div className="absolute inset-0 dot-grid opacity-15" />
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
 
-        {/* Heading */}
         <div className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold text-amber-brand uppercase tracking-widest mb-4 px-3 py-1 rounded-full bg-amber-brand/10 border border-amber-brand/20">
-            How It Works
+          <span className="inline-block text-xs font-semibold text-sky-400 uppercase tracking-widest mb-4 px-3 py-1 rounded-full bg-sky-400/10 border border-sky-400/20">
+            Come Funziona
           </span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-5">
-            Ship Freight in
-            <span className="text-gradient"> 5 Steps</span>
+            Spedisci in
+            <span className="text-gradient"> 5 Passi</span>
           </h2>
           <p className="text-steel-400 max-w-lg mx-auto text-base leading-relaxed">
-            From quote to delivery, the entire process is streamlined into a simple, transparent workflow.
+            Dal preventivo alla consegna, l'intero processo è semplice, trasparente ed efficiente.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-
-          {/* Step list */}
           <div className="lg:col-span-5 flex flex-col gap-3">
             {steps.map((s, i) => {
               const Icon = s.icon;
@@ -75,18 +71,18 @@ const LifecycleSection = ({ onGetQuote }) => {
                   onClick={() => setActiveStep(i)}
                   className={`text-left w-full px-5 py-4 rounded-xl border transition-all duration-300 ${
                     isActive
-                      ? 'bg-amber-brand/10 border-amber-brand/40 shadow-[0_0_20px_rgba(245,158,11,0.1)]'
+                      ? 'bg-sky-400/10 border-sky-400/40 shadow-[0_0_20px_rgba(56,189,248,0.1)]'
                       : 'bg-white/[0.02] border-white/[0.06] hover:border-white/[0.12]'
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
-                      isActive ? 'bg-amber-brand text-navy-950' : 'bg-white/[0.05] text-steel-400'
+                      isActive ? 'bg-sky-400 text-navy-950' : 'bg-white/[0.05] text-steel-400'
                     }`}>
                       <Icon className="w-5 h-5" strokeWidth={2} />
                     </div>
                     <div>
-                      <div className={`text-[11px] font-mono font-bold mb-0.5 ${isActive ? 'text-amber-brand' : 'text-steel-500'}`}>
+                      <div className={`text-[11px] font-mono font-bold mb-0.5 ${isActive ? 'text-sky-400' : 'text-steel-500'}`}>
                         STEP {s.step}
                       </div>
                       <div className={`text-sm font-bold transition-colors ${isActive ? 'text-white' : 'text-steel-300'}`}>
@@ -99,20 +95,19 @@ const LifecycleSection = ({ onGetQuote }) => {
             })}
           </div>
 
-          {/* Step detail */}
           <div className="lg:col-span-7">
-            <div className="glass rounded-2xl p-8 border border-white/[0.08] h-full min-h-[280px]">
+            <div className="glass rounded-2xl p-8 border border-white/[0.08] min-h-[280px]">
               {(() => {
                 const s = steps[activeStep];
                 const Icon = s.icon;
                 return (
                   <div className="fade-slide-up" key={activeStep}>
                     <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-amber-brand/15 border border-amber-brand/30 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-7 h-7 text-amber-brand" strokeWidth={1.8} />
+                      <div className="w-14 h-14 rounded-2xl bg-sky-400/15 border border-sky-400/30 flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-7 h-7 text-sky-400" strokeWidth={1.8} />
                       </div>
                       <div>
-                        <span className="text-xs font-mono text-amber-brand/70 font-bold">STEP {s.step}</span>
+                        <span className="text-xs font-mono text-sky-400/70 font-bold">STEP {s.step}</span>
                         <h3 className="text-2xl font-extrabold text-white mt-1">{s.title}</h3>
                       </div>
                     </div>
@@ -121,8 +116,8 @@ const LifecycleSection = ({ onGetQuote }) => {
                       <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-steel-400 leading-relaxed">{s.detail}</p>
                     </div>
-                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-amber-brand cursor-pointer hover:text-amber-light transition-colors group">
-                      <span>Learn more about this step</span>
+                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-sky-400 cursor-pointer hover:text-sky-300 transition-colors group">
+                      <span>Scopri di più su questo step</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -130,20 +125,14 @@ const LifecycleSection = ({ onGetQuote }) => {
               })()}
             </div>
           </div>
-
         </div>
 
-        {/* CTA */}
         <div className="mt-14 text-center">
-          <button
-            onClick={onGetQuote}
-            className="btn-amber inline-flex items-center gap-2.5 px-10 py-4 rounded-full text-base font-bold"
-          >
-            Start Shipping Today
+          <button onClick={onGetQuote} className="btn-brand inline-flex items-center gap-2.5 px-10 py-4 rounded-full text-base font-bold">
+            Inizia a Spedire Oggi
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
-
       </div>
     </section>
   );

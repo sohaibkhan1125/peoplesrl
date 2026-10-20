@@ -21,7 +21,7 @@ function App() {
   const closeQuote = () => setQuoteOpen(false);
 
   return (
-    <div className="min-h-screen bg-navy-950 text-steel-300 flex flex-col font-sans selection:bg-amber-brand/20 selection:text-amber-brand">
+    <div className="min-h-screen bg-navy-950 text-steel-300 flex flex-col font-sans selection:bg-sky-400/20 selection:text-sky-400">
 
       <Navbar onGetQuote={openQuote} />
 

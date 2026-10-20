@@ -4,23 +4,23 @@ import { Headphones, Shield, Clock, Users } from 'lucide-react';
 const features = [
   {
     icon: Headphones,
-    title: 'Dedicated Logistics Reps',
-    desc: 'Every account gets a named freight manager — a real human who knows your lanes, your freight, and your priorities.',
+    title: 'Referenti Dedicati',
+    desc: 'Ogni cliente ha un referente logistico nominato — una persona reale che conosce le tue rotte, le tue merci e le tue priorità.',
   },
   {
     icon: Shield,
-    title: 'Cargo Insurance Included',
-    desc: 'All shipments are covered up to $100,000 as standard. Extended coverage available for high-value or specialized freight.',
+    title: 'Assicurazione Merci Inclusa',
+    desc: 'Tutte le spedizioni sono coperte fino a €100.000 come standard. Copertura estesa disponibile per merci di alto valore.',
   },
   {
     icon: Clock,
-    title: '24 / 7 Ops Center',
-    desc: 'Our operations desk runs around the clock. Pickup issues, transit delays, weather reroutes — we\'re always on it.',
+    title: 'Operatività 24 / 7',
+    desc: 'Il nostro team operativo è attivo tutto il giorno. Problemi di ritiro, ritardi, emergenze — siamo sempre disponibili.',
   },
   {
     icon: Users,
-    title: 'Vetted Carrier Network',
-    desc: 'Every carrier in our network passes a 47-point safety audit: MC authority, insurance, CSA scores, and on-time history.',
+    title: 'Rete di Vettori Verificati',
+    desc: 'Ogni vettore supera un audit in 47 punti: autorizzazioni, assicurazioni, punteggi di sicurezza e storico consegne.',
   },
 ];
 
@@ -32,24 +32,20 @@ const ExpertsSection = () => {
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left: Visual */}
+          {/* Left: Visual dashboard */}
           <div className="relative">
             <div className="glass rounded-2xl p-8 border border-white/[0.08] relative overflow-hidden">
-              {/* Amber glow */}
-              <div className="absolute top-0 right-0 w-48 h-48 bg-amber-brand/10 rounded-full blur-[60px] pointer-events-none" />
-
+              <div className="absolute top-0 right-0 w-48 h-48 bg-sky-400/10 rounded-full blur-[60px] pointer-events-none" />
               <div className="relative">
-                <div className="text-xs font-mono font-bold text-amber-brand uppercase tracking-widest mb-6">
-                  OPS DASHBOARD
+                <div className="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest mb-6">
+                  PANNELLO OPERATIVO
                 </div>
-
-                {/* Mock dashboard stats */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
-                    { label: 'Active Loads', value: '1,847', trend: '+12%', up: true },
-                    { label: 'Carriers Online', value: '482', trend: '+4', up: true },
-                    { label: 'Avg Rate / Mile', value: '$2.34', trend: '-8%', up: false },
-                    { label: 'Exceptions', value: '3', trend: 'low', up: true },
+                    { label: 'Spedizioni Attive', value: '1.847', trend: '+12%', up: true },
+                    { label: 'Vettori Online',    value: '482',   trend: '+4',   up: true },
+                    { label: 'Tariffa Media/km',  value: '€1.80', trend: '-8%',  up: false },
+                    { label: 'Eccezioni',         value: '3',     trend: 'bassa',up: true },
                   ].map((item, i) => (
                     <div key={i} className="bg-black/30 rounded-xl p-4 border border-white/[0.05]">
                       <div className="text-xs text-steel-500 mb-1">{item.label}</div>
@@ -60,15 +56,13 @@ const ExpertsSection = () => {
                     </div>
                   ))}
                 </div>
-
-                {/* Activity feed */}
                 <div className="space-y-2.5">
-                  <div className="text-xs font-mono text-steel-500 uppercase tracking-wider mb-3">Latest Activity</div>
+                  <div className="text-xs font-mono text-steel-500 uppercase tracking-wider mb-3">Attività Recenti</div>
                   {[
-                    { text: 'HX-4821 departed Chicago, IL', time: '2m ago', dot: 'bg-amber-brand' },
-                    { text: 'Carrier assigned to HX-4825', time: '7m ago', dot: 'bg-blue-400' },
-                    { text: 'HX-4818 delivered — POD captured', time: '14m ago', dot: 'bg-emerald-400' },
-                    { text: 'New load tender HX-4826 accepted', time: '21m ago', dot: 'bg-amber-brand' },
+                    { text: 'PS-4821 partito da Milano',          time: '2m fa',  dot: 'bg-sky-400' },
+                    { text: 'Vettore assegnato a PS-4825',        time: '7m fa',  dot: 'bg-blue-400' },
+                    { text: 'PS-4818 consegnato — POD acquisito', time: '14m fa', dot: 'bg-emerald-400' },
+                    { text: 'Nuova spedizione PS-4826 accettata', time: '21m fa', dot: 'bg-sky-400' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-3 text-sm">
                       <div className={`w-2 h-2 rounded-full flex-shrink-0 ${item.dot}`} />
@@ -83,25 +77,25 @@ const ExpertsSection = () => {
 
           {/* Right: Content */}
           <div>
-            <span className="inline-block text-xs font-semibold text-amber-brand uppercase tracking-widest mb-5 px-3 py-1 rounded-full bg-amber-brand/10 border border-amber-brand/20">
-              Why HaulX
+            <span className="inline-block text-xs font-semibold text-sky-400 uppercase tracking-widest mb-5 px-3 py-1 rounded-full bg-sky-400/10 border border-sky-400/20">
+              Perché People SRL
             </span>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
-              Technology Backed by
-              <span className="text-gradient"> Real People</span>
+              Tecnologia Supportata da
+              <span className="text-gradient"> Persone Reali</span>
             </h2>
             <p className="text-steel-400 text-base leading-relaxed mb-10">
-              We built the software — but we never forgot that freight is a people business.
-              HaulX combines the speed of automation with the judgment of experienced logistics professionals.
+              Abbiamo costruito la piattaforma — ma non abbiamo mai dimenticato che la logistica
+              è un business fatto di persone. People SRL unisce la velocità dell'automazione
+              con l'esperienza di professionisti del settore.
             </p>
-
             <div className="flex flex-col gap-6">
               {features.map((f, i) => {
                 const Icon = f.icon;
                 return (
                   <div key={i} className="flex items-start gap-5">
-                    <div className="w-11 h-11 rounded-xl bg-amber-brand/10 border border-amber-brand/25 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-amber-brand" strokeWidth={1.8} />
+                    <div className="w-11 h-11 rounded-xl bg-sky-400/10 border border-sky-400/25 flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-sky-400" strokeWidth={1.8} />
                     </div>
                     <div>
                       <h4 className="text-base font-bold text-white mb-1.5">{f.title}</h4>

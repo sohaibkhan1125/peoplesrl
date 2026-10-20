@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { X, ArrowRight, CheckCircle, Truck, Package, Thermometer, Layers } from 'lucide-react';
 
 const freightTypes = [
-  { id: 'ftl', label: 'Full Truckload (FTL)', icon: Truck },
-  { id: 'ltl', label: 'Less Than Truckload', icon: Layers },
-  { id: 'reefer', label: 'Refrigerated', icon: Thermometer },
-  { id: 'other', label: 'Other / Not Sure', icon: Package },
+  { id: 'ftl',    label: 'Trasporto Completo (FTL)', icon: Truck },
+  { id: 'ltl',    label: 'Groupage (LTL)',            icon: Layers },
+  { id: 'reefer', label: 'Refrigerato',               icon: Thermometer },
+  { id: 'other',  label: 'Altro / Non so',            icon: Package },
 ];
 
 const DemoModal = ({ isOpen, onClose }) => {
@@ -23,13 +23,11 @@ const DemoModal = ({ isOpen, onClose }) => {
     phone: '',
   });
 
-  // lock scroll when open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
-      // reset on close
       setTimeout(() => { setStep(1); setSubmitted(false); }, 300);
     }
     return () => { document.body.style.overflow = ''; };
@@ -49,7 +47,7 @@ const DemoModal = ({ isOpen, onClose }) => {
       className="fixed inset-0 z-[100] flex items-center justify-center p-4"
       aria-modal="true"
       role="dialog"
-      aria-label="Get a freight quote"
+      aria-label="Richiedi un preventivo"
     >
       {/* Overlay */}
       <div
@@ -64,17 +62,17 @@ const DemoModal = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="flex items-center justify-between px-7 py-5 border-b border-white/[0.07]">
           <div>
-            <h2 className="text-lg font-extrabold text-white">Get a Free Quote</h2>
+            <h2 className="text-lg font-extrabold text-white">Richiedi un Preventivo Gratuito</h2>
             {!submitted && (
               <p className="text-xs text-steel-500 mt-0.5">
-                Step {step} of 2 — {step === 1 ? 'Shipment Details' : 'Your Info'}
+                Passo {step} di 2 — {step === 1 ? 'Dettagli Spedizione' : 'I Tuoi Dati'}
               </p>
             )}
           </div>
           <button
             onClick={onClose}
             className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-steel-400 hover:text-white transition-colors"
-            aria-label="Close modal"
+            aria-label="Chiudi"
           >
             <X className="w-4 h-4" />
           </button>
@@ -84,7 +82,7 @@ const DemoModal = ({ isOpen, onClose }) => {
         {!submitted && (
           <div className="h-1 bg-white/[0.05]">
             <div
-              className="h-full bg-amber-brand transition-all duration-500"
+              className="h-full bg-sky-400 transition-all duration-500"
               style={{ width: step === 1 ? '50%' : '100%' }}
             />
           </div>
@@ -93,28 +91,29 @@ const DemoModal = ({ isOpen, onClose }) => {
         {/* Content */}
         <div className="px-7 py-7">
           {submitted ? (
-            /* Success state */
+            /* Success */
             <div className="flex flex-col items-center text-center py-6">
               <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mb-5">
                 <CheckCircle className="w-8 h-8 text-emerald-400" />
               </div>
-              <h3 className="text-xl font-extrabold text-white mb-3">Quote Request Sent!</h3>
+              <h3 className="text-xl font-extrabold text-white mb-3">Richiesta Inviata!</h3>
               <p className="text-steel-400 text-sm leading-relaxed mb-6 max-w-xs">
-                A HaulX logistics rep will reach out within 30 minutes during business hours with your rate.
+                Un nostro referente logistico ti contatterà entro 30 minuti durante l'orario lavorativo con il tuo preventivo.
               </p>
-              <div className="w-full p-4 rounded-xl bg-amber-brand/8 border border-amber-brand/20 text-sm text-amber-brand font-semibold">
-                Average response time: <strong className="text-white">12 minutes</strong>
+              <div className="w-full p-4 rounded-xl bg-sky-400/8 border border-sky-400/20 text-sm text-sky-400 font-semibold">
+                Tempo medio di risposta: <strong className="text-white">12 minuti</strong>
               </div>
               <button onClick={onClose} className="mt-6 text-sm text-steel-500 hover:text-steel-200 transition-colors">
-                Close window
+                Chiudi finestra
               </button>
             </div>
+
           ) : step === 1 ? (
-            /* Step 1: Shipment details */
+            /* Step 1 */
             <div className="flex flex-col gap-5">
               <div>
                 <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-3">
-                  Freight Type
+                  Tipo di Trasporto
                 </label>
                 <div className="grid grid-cols-2 gap-2.5">
                   {freightTypes.map(({ id, label, icon: Icon }) => (
@@ -122,13 +121,13 @@ const DemoModal = ({ isOpen, onClose }) => {
                       key={id}
                       type="button"
                       onClick={() => update('freightType', id)}
-                      className={`flex items-center gap-2.5 px-4 py-3 rounded-xl border text-sm text-left transition-all ${
+                      className={`flex items-center gap-2.5 px-4 py-3 rounded-xl border text-left transition-all ${
                         form.freightType === id
-                          ? 'bg-amber-brand/10 border-amber-brand/40 text-white'
+                          ? 'bg-sky-400/10 border-sky-400/40 text-white'
                           : 'bg-white/[0.02] border-white/[0.07] text-steel-400 hover:border-white/[0.15]'
                       }`}
                     >
-                      <Icon className={`w-4 h-4 flex-shrink-0 ${form.freightType === id ? 'text-amber-brand' : 'text-steel-500'}`} />
+                      <Icon className={`w-4 h-4 flex-shrink-0 ${form.freightType === id ? 'text-sky-400' : 'text-steel-500'}`} />
                       <span className="text-xs font-semibold leading-tight">{label}</span>
                     </button>
                   ))}
@@ -138,26 +137,26 @@ const DemoModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Origin
+                    Origine
                   </label>
                   <input
                     type="text"
                     value={form.origin}
                     onChange={(e) => update('origin', e.target.value)}
-                    placeholder="City, State or ZIP"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    placeholder="Città o CAP"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Destination
+                    Destinazione
                   </label>
                   <input
                     type="text"
                     value={form.destination}
                     onChange={(e) => update('destination', e.target.value)}
-                    placeholder="City, State or ZIP"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    placeholder="Città o CAP"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                   />
                 </div>
               </div>
@@ -165,25 +164,25 @@ const DemoModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Weight (lbs)
+                    Peso (kg)
                   </label>
                   <input
                     type="number"
                     value={form.weight}
                     onChange={(e) => update('weight', e.target.value)}
-                    placeholder="e.g. 20,000"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    placeholder="es. 5.000"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Pickup Date
+                    Data Ritiro
                   </label>
                   <input
                     type="date"
                     value={form.pickupDate}
                     onChange={(e) => update('pickupDate', e.target.value)}
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400/50 transition-colors"
                     style={{ colorScheme: 'dark' }}
                   />
                 </div>
@@ -193,68 +192,69 @@ const DemoModal = ({ isOpen, onClose }) => {
                 type="button"
                 onClick={() => setStep(2)}
                 disabled={!form.origin || !form.destination}
-                className="btn-amber w-full py-3.5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed mt-1"
+                className="btn-brand w-full py-3.5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed mt-1"
               >
-                Continue
+                Continua
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
+
           ) : (
-            /* Step 2: Contact details */
+            /* Step 2 */
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Full Name
+                    Nome e Cognome
                   </label>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => update('name', e.target.value)}
-                    placeholder="Jane Smith"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    placeholder="Mario Rossi"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                    Company
+                    Azienda
                   </label>
                   <input
                     type="text"
                     required
                     value={form.company}
                     onChange={(e) => update('company', e.target.value)}
-                    placeholder="Acme Corp"
-                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                    placeholder="Rossi Srl"
+                    className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                  Work Email
+                  Email Aziendale
                 </label>
                 <input
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => update('email', e.target.value)}
-                  placeholder="jane@company.com"
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                  placeholder="mario@azienda.it"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-2">
-                  Phone (optional)
+                  Telefono (opzionale)
                 </label>
                 <input
                   type="tel"
                   value={form.phone}
                   onChange={(e) => update('phone', e.target.value)}
-                  placeholder="(555) 000-0000"
-                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-amber-brand/50 transition-colors"
+                  placeholder="0521 000000"
+                  className="w-full bg-white/[0.04] border border-white/[0.1] rounded-xl px-4 py-3 text-sm text-white placeholder-steel-600 focus:outline-none focus:border-sky-400/50 transition-colors"
                 />
               </div>
 
@@ -264,21 +264,22 @@ const DemoModal = ({ isOpen, onClose }) => {
                   onClick={() => setStep(1)}
                   className="btn-ghost flex-1 py-3.5 rounded-xl text-sm font-semibold"
                 >
-                  Back
+                  Indietro
                 </button>
                 <button
                   type="submit"
-                  className="btn-amber flex-1 py-3.5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2"
+                  className="btn-brand flex-1 py-3.5 rounded-xl text-sm font-bold inline-flex items-center justify-center gap-2"
                 >
-                  Submit Quote Request
+                  Invia Richiesta
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
               <p className="text-center text-xs text-steel-600 mt-1">
-                By submitting, you agree to our{' '}
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a href="/privacy-policy" className="text-steel-400 hover:text-amber-brand transition-colors">Privacy Policy</a>.
+                Inviando accetti la nostra{' '}
+                <a href="/privacy-policy" className="text-steel-400 hover:text-sky-400 transition-colors">
+                  Privacy Policy
+                </a>.
               </p>
             </form>
           )}

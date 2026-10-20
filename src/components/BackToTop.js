@@ -10,15 +10,13 @@ const BackToTop = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
     <button
       onClick={scrollToTop}
-      aria-label="Back to top"
-      className={`fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full btn-amber flex items-center justify-center shadow-[0_0_24px_rgba(245,158,11,0.4)] transition-all duration-300 ${
+      aria-label="Torna su"
+      className={`fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full btn-brand flex items-center justify-center transition-all duration-300 ${
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
     >
