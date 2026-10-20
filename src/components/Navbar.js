@@ -47,7 +47,8 @@ const Navbar = ({ onGetQuote }) => {
             <img
               src="/logo.jpeg"
               alt="People Logistic Integrate Services"
-              className="h-12 w-auto object-contain rounded-xl"
+              className="h-12 w-auto object-contain"
+              style={{ mixBlendMode: 'screen', filter: 'brightness(1.1) contrast(1.05)' }}
             />
           </a>
 
