@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Home',         href: '/' },
-  { label: 'Servizi',      href: '#services' },
-  { label: 'Come Funziona',href: '#how-it-works' },
-  { label: 'Network',      href: '#network' },
-  { label: 'Chi Siamo',    href: '#about' },
+  { label: 'Home',          href: '/' },
+  { label: 'Servizi',       href: '#services' },
+  { label: 'Come Funziona', href: '#how-it-works' },
+  { label: 'Network',       href: '#network' },
+  { label: 'Chi Siamo',     href: '#about' },
+  { label: 'Vai al Negozio', href: 'https://negozio.peopleitaly.eu/', external: true },
 ];
 
 const Navbar = ({ onGetQuote }) => {
@@ -56,7 +57,12 @@ const Navbar = ({ onGetQuote }) => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-steel-300 hover:text-white transition-colors relative group"
+                {...(link.external ? { target: '_blank', rel: 'noreferrer' } : {})}
+                className={`text-sm font-medium transition-colors relative group ${
+                  link.external
+                    ? 'text-sky-400 hover:text-sky-300 font-semibold'
+                    : 'text-steel-300 hover:text-white'
+                }`}
               >
                 {link.label}
                 <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-sky-400 rounded-full group-hover:w-full transition-all duration-300" />
@@ -106,8 +112,11 @@ const Navbar = ({ onGetQuote }) => {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.external ? { target: '_blank', rel: 'noreferrer' } : {})}
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-between py-4 text-lg font-semibold text-steel-200 hover:text-sky-400 transition-colors"
+                className={`flex items-center justify-between py-4 text-lg font-semibold transition-colors ${
+                  link.external ? 'text-sky-400 hover:text-sky-300' : 'text-steel-200 hover:text-sky-400'
+                }`}
                 style={{ fontFamily: 'Oswald, sans-serif' }}
               >
                 {link.label}
