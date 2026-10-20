@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { MapPin, Truck, ArrowRight, Navigation } from 'lucide-react';
 
 const corridors = [
-  { id: 1, from: 'Milano',  fromState: 'MI', to: 'Roma',    toState: 'RM', km: '572',  loads: '340', time: '6h',  hot: true },
-  { id: 2, from: 'Torino',  fromState: 'TO', to: 'Napoli',  toState: 'NA', km: '890',  loads: '220', time: '9h',  hot: false },
-  { id: 3, from: 'Bologna', fromState: 'BO', to: 'Palermo', toState: 'PA', km: '1140', loads: '180', time: '12h', hot: true },
-  { id: 4, from: 'Venezia', fromState: 'VE', to: 'Bari',    toState: 'BA', km: '810',  loads: '150', time: '8h',  hot: false },
-  { id: 5, from: 'Firenze', fromState: 'FI', to: 'Catania', toState: 'CT', km: '1020', loads: '120', time: '11h', hot: false },
-  { id: 6, from: 'Genova',  fromState: 'GE', to: 'Milano',  toState: 'MI', km: '142',  loads: '280', time: '1.5h',hot: true },
+  { id: 1, from: 'Parma',   fromState: 'PR', to: 'Milano',  toState: 'MI', km: '121',  loads: '380', time: '1.5h', hot: true },
+  { id: 2, from: 'Parma',   fromState: 'PR', to: 'Roma',    toState: 'RM', km: '453',  loads: '310', time: '5h',   hot: true },
+  { id: 3, from: 'Parma',   fromState: 'PR', to: 'Napoli',  toState: 'NA', km: '770',  loads: '195', time: '8h',   hot: false },
+  { id: 4, from: 'Milano',  fromState: 'MI', to: 'Roma',    toState: 'RM', km: '572',  loads: '340', time: '6h',   hot: true },
+  { id: 5, from: 'Bologna', fromState: 'BO', to: 'Palermo', toState: 'PA', km: '1140', loads: '180', time: '12h',  hot: false },
+  { id: 6, from: 'Venezia', fromState: 'VE', to: 'Bari',    toState: 'BA', km: '810',  loads: '150', time: '8h',   hot: false },
+  { id: 7, from: 'Genova',  fromState: 'GE', to: 'Milano',  toState: 'MI', km: '142',  loads: '280', time: '1.5h', hot: false },
 ];
 
 const regionStats = [
@@ -87,6 +88,7 @@ const NetworkCorridorMap = () => {
                     { cx: 200, cy: 80,  name: 'Milano' },
                     { cx: 240, cy: 95,  name: 'Venezia' },
                     { cx: 175, cy: 115, name: 'Genova' },
+                    { cx: 210, cy: 130, name: 'Parma' },
                     { cx: 215, cy: 140, name: 'Bologna' },
                     { cx: 195, cy: 185, name: 'Firenze' },
                     { cx: 210, cy: 255, name: 'Roma' },
@@ -102,21 +104,35 @@ const NetworkCorridorMap = () => {
                   ))}
 
                   {/* Corridors */}
-                  <path d="M 200 80 Q 205 165 210 255" stroke="#38BDF8" strokeWidth="2" strokeDasharray="6 3" opacity="0.7" />
-                  <path d="M 155 70 Q 185 205 220 390" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.5" />
-                  <path d="M 215 140 Q 215 195 175 472" stroke="#7DD3FC" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.45" />
-                  <path d="M 240 95 Q 255 205 270 320" stroke="#60a5fa" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.45" />
-                  <path d="M 175 115 Q 190 145 200 80" stroke="#38BDF8" strokeWidth="1.8" strokeDasharray="4 2" opacity="0.6" />
+                  {/* Parma → Milano */}
+                  <path d="M 210 130 Q 205 105 200 80" stroke="#38BDF8" strokeWidth="2" strokeDasharray="6 3" opacity="0.8" />
+                  {/* Parma → Roma */}
+                  <path d="M 210 130 Q 210 190 210 255" stroke="#38BDF8" strokeWidth="2" strokeDasharray="6 3" opacity="0.75" />
+                  {/* Parma → Napoli */}
+                  <path d="M 210 130 Q 215 260 220 390" stroke="#7DD3FC" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.5" />
+                  {/* Milano → Roma */}
+                  <path d="M 200 80 Q 205 165 210 255" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.45" />
+                  {/* Bologna → Palermo */}
+                  <path d="M 215 140 Q 215 195 175 472" stroke="#60a5fa" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.4" />
+                  {/* Venezia → Bari */}
+                  <path d="M 240 95 Q 255 205 270 320" stroke="#60a5fa" strokeWidth="1.5" strokeDasharray="5 3" opacity="0.4" />
 
                   {/* Animated truck dots */}
                   <circle r="4" fill="#7DD3FC">
                     <animateMotion dur="4s" repeatCount="indefinite">
-                      <mpath href="#mi-ro" />
+                      <mpath href="#parma-ro" />
                     </animateMotion>
                   </circle>
-                  <path id="mi-ro" d="M 200 80 Q 205 165 210 255" fill="none" />
+                  <path id="parma-ro" d="M 210 130 Q 210 190 210 255" fill="none" />
 
                   <circle r="3" fill="#60a5fa" opacity="0.9">
+                    <animateMotion dur="3s" repeatCount="indefinite" begin="0.5s">
+                      <mpath href="#parma-mi" />
+                    </animateMotion>
+                  </circle>
+                  <path id="parma-mi" d="M 210 130 Q 205 105 200 80" fill="none" />
+
+                  <circle r="3" fill="#38BDF8" opacity="0.8">
                     <animateMotion dur="5s" repeatCount="indefinite" begin="1s">
                       <mpath href="#bo-pa" />
                     </animateMotion>
