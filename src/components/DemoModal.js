@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { X, ArrowRight, CheckCircle, Truck, Package, Thermometer, Layers } from 'lucide-react';
+import { X, ArrowRight, CheckCircle, Truck, Package, Thermometer, Layers, PlaneTakeoff, Ship } from 'lucide-react';
 
 const freightTypes = [
   { id: 'ftl',    label: 'Trasporto Completo (FTL)', icon: Truck },
   { id: 'ltl',    label: 'Groupage (LTL)',            icon: Layers },
   { id: 'reefer', label: 'Refrigerato',               icon: Thermometer },
+  { id: 'air',    label: 'Trasporto Aereo',           icon: PlaneTakeoff },
+  { id: 'sea',    label: 'Trasporto Marittimo',       icon: Ship },
   { id: 'other',  label: 'Altro / Non so',            icon: Package },
 ];
 
@@ -115,7 +117,7 @@ const DemoModal = ({ isOpen, onClose }) => {
                 <label className="block text-xs font-semibold text-steel-400 uppercase tracking-wider mb-3">
                   Tipo di Trasporto
                 </label>
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                   {freightTypes.map(({ id, label, icon: Icon }) => (
                     <button
                       key={id}
