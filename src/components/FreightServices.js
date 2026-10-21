@@ -59,33 +59,6 @@ const services = [
     color: 'green',
   },
 ];
-    title: 'Trasporto Refrigerato',
-    desc: 'Trasporto a temperatura controllata per prodotti deperibili, farmaceutici e merci sensibili.',
-    tags: ['0°C – 8°C', 'Alimentare', 'Certificato ATP'],
-    color: 'cyan',
-  },
-  {
-    icon: Zap,
-    title: 'Spedizioni Urgenti',
-    desc: 'Carichi time-critical con ritiro garantito in giornata o il giorno successivo su corsie dedicate.',
-    tags: ['Dispacciamento 24/7', 'Ordini Express', 'GPS Live'],
-    color: 'blue',
-  },
-  {
-    icon: Anchor,
-    title: 'Trasporti Speciali',
-    desc: 'Merci eccezionali, sovradimensionate o di peso elevato che richiedono pianali aperti e attrezzature speciali.',
-    tags: ['Permessi Pronti', 'Sovradimensionato', 'Scorte'],
-    color: 'indigo',
-  },
-  {
-    icon: Globe,
-    title: 'Intermodale',
-    desc: 'Combinazione ferrovia + camion per tratte lunghe efficienti, riducendo le emissioni senza sacrificare i tempi.',
-    tags: ['Ferroviario', 'Eco-Sostenibile', 'Lungo Raggio'],
-    color: 'green',
-  },
-];
 
 const colorMap = {
   blue:   { bg: 'bg-blue-500/10',    border: 'border-blue-500/25',    icon: 'text-blue-400',    tag: 'bg-blue-500/10 text-blue-400 border-blue-500/20' },
